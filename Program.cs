@@ -83,7 +83,7 @@ consumer.Received += async (model, ea) =>
   }
   Console.WriteLine(status);
 
-  await httpClient.PostAsJsonAsync($"{PUBLISHER_ENDPOINT}{dto.PaymentId}", new FinishPaymentsDTO(status));
+  await httpClient.PostAsJsonAsync($"{PUBLISHER_ENDPOINT}{dto.PaymentId}/{dto.TransactionId}", new FinishPaymentsDTO(status));
   await httpClient.PatchAsJsonAsync(dto.OriginWebhook, dto.ToTransferStatusDTO(status));
 };
 

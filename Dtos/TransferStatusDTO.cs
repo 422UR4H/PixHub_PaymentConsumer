@@ -1,7 +1,7 @@
 namespace PaymentsConsumer.Dtos;
 
-public class TransferStatusDTO(long id, string status)
+public class TransferStatusDTO(Guid transactionId, string status)
 {
-  public long Id { get; } = id;
+  public Guid TransactionId { get; } = transactionId;
   public string Status { get; } = status;
 }

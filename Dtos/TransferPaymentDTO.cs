@@ -2,6 +2,7 @@ namespace PaymentsConsumer.Dtos;
 
 public class TransferPaymentDTO(
   int paymentId,
+  Guid transactionId,
   OriginDTO origin,
   DestinyDTO destiny,
   string originWebhook,
@@ -10,6 +11,7 @@ public class TransferPaymentDTO(
   string description)
 {
   public int PaymentId { get; } = paymentId;
+  public Guid TransactionId { get; } = transactionId;
   public OriginDTO Origin { get; } = origin;
   public DestinyDTO Destiny { get; } = destiny;
   public string OriginWebhook { get; } = originWebhook;
@@ -24,6 +26,6 @@ public class TransferPaymentDTO(
 
   public TransferStatusDTO ToTransferStatusDTO(string status)
   {
-    return new TransferStatusDTO(PaymentId, status);
+    return new TransferStatusDTO(TransactionId, status);
   }
 }
