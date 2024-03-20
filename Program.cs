@@ -2,18 +2,12 @@ using System.Text;
 using System.Text.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using Npgsql;
 using PaymentsConsumer.Dtos;
 using System.Net.Http.Json;
 using PixHub.Dtos;
 
 
 const string PUBLISHER_ENDPOINT = "http://localhost:8080/payments/finish/";
-
-/** Database **/
-var connString = "Host=localhost;Username=postgres;Password=postgres;Database=postgres";
-await using var conn = new NpgsqlConnection(connString);
-await conn.OpenAsync();
 
 /** RabbitMQ **/
 string queueName = "payments";
