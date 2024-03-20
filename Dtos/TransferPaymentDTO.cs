@@ -19,9 +19,9 @@ public class TransferPaymentDTO(
   public int Amount { get; } = amount;
   public string? Description { get; } = description;
 
-  public CreatePaymentDTO ToCreatePaymentDTO()
+  public NewPaymentDTO ToNewPaymentDTO()
   {
-    return new CreatePaymentDTO(Origin, Destiny, Amount, Description);
+    return new NewPaymentDTO(TransactionId, Origin, Destiny, Amount, Description);
   }
 
   public TransferStatusDTO ToTransferStatusDTO(string status)

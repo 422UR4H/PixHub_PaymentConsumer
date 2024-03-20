@@ -61,7 +61,7 @@ consumer.Received += async (model, ea) =>
   {
     CancellationTokenSource cancellation = new(TimeSpan.FromMinutes(2));
     destinyProviderResponse = await httpClient
-      .PostAsJsonAsync(dto.DestinyWebhook, dto.ToCreatePaymentDTO(), cancellation.Token);
+      .PostAsJsonAsync(dto.DestinyWebhook, dto.ToNewPaymentDTO(), cancellation.Token);
 
     if (destinyProviderResponse.IsSuccessStatusCode)
     {
