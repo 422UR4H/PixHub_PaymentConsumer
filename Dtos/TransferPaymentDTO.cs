@@ -5,8 +5,7 @@ public class TransferPaymentDTO(
   Guid transactionId,
   OriginDTO origin,
   DestinyDTO destiny,
-  string originWebhook,
-  string destinyWebhook,
+  WebhookDTO webhook,
   int amount,
   string description)
 {
@@ -14,8 +13,7 @@ public class TransferPaymentDTO(
   public Guid TransactionId { get; } = transactionId;
   public OriginDTO Origin { get; } = origin;
   public DestinyDTO Destiny { get; } = destiny;
-  public string OriginWebhook { get; } = originWebhook;
-  public string DestinyWebhook { get; } = destinyWebhook;
+  public WebhookDTO Webhook { get; } = webhook;
   public int Amount { get; } = amount;
   public string? Description { get; } = description;
 

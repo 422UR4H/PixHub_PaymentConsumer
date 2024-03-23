@@ -55,7 +55,7 @@ consumer.Received += async (model, ea) =>
   {
     CancellationTokenSource cancellation = new(TimeSpan.FromMinutes(2));
     destinyProviderResponse = await httpClient
-      .PostAsJsonAsync(dto.DestinyWebhook, dto.ToNewPaymentDTO(), cancellation.Token);
+      .PostAsJsonAsync(dto.Webhook.Destiny, dto.ToNewPaymentDTO(), cancellation.Token);
 
     if (destinyProviderResponse.IsSuccessStatusCode)
     {
@@ -78,7 +78,7 @@ consumer.Received += async (model, ea) =>
   Console.WriteLine(status);
 
   await httpClient.PostAsJsonAsync($"{PUBLISHER_ENDPOINT}{dto.PaymentId}/{dto.TransactionId}", new FinishPaymentsDTO(status));
-  await httpClient.PatchAsJsonAsync(dto.OriginWebhook, dto.ToTransferStatusDTO(status));
+  await httpClient.PatchAsJsonAsync(dto.Webhook.Origin, dto.ToTransferStatusDTO(status));
 };
 
 channel.BasicConsume(
