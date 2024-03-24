@@ -1,7 +1,7 @@
 namespace PaymentsConsumer.Dtos;
 
 public class TransferPaymentDTO(
-  int paymentId,
+  long paymentId,
   Guid transactionId,
   OriginDTO origin,
   DestinyDTO destiny,
@@ -9,7 +9,7 @@ public class TransferPaymentDTO(
   int amount,
   string description)
 {
-  public int PaymentId { get; } = paymentId;
+  public long PaymentId { get; } = paymentId;
   public Guid TransactionId { get; } = transactionId;
   public OriginDTO Origin { get; } = origin;
   public DestinyDTO Destiny { get; } = destiny;
