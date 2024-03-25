@@ -19,7 +19,7 @@ Clone the repository:
 Enter the folder and run app:
 
 ```bash
-cd PixHub_API/
+cd PixHub_PaymentConsumer/
 dotnet watch
 ```
 
